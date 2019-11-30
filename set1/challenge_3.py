@@ -36,7 +36,10 @@ def decode(s):
     result = ''
     highScore = 0
     for i in range(128):
-        decoded = getXor(s, i)
+        try:
+            decoded = getXor(s, i)
+        except:
+            continue
         score = getScore(decoded)
         if score > highScore:
             highScore = score
